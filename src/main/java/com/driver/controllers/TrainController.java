@@ -54,7 +54,6 @@ public class TrainController {
     public Integer calculateOldestPersonTravelling(@PathVariable("trainId")Integer trainId){
 
         //We need to find out the oldest person Travellign
-
         try{
             Integer age = trainService.calculateOldestPersonTravelling(trainId);
             return  age;
@@ -64,9 +63,7 @@ public class TrainController {
     }
 
     @GetMapping("get-list-of-trains-arriving-in-a-range-of-time")
-    public List<Integer> calculateListOfTrainIdsAtAStationInAParticularTimeRange(@RequestParam("station")Station station,
-                                                                                 @RequestParam("startTime")LocalTime startTime
-                                                                                 ,@RequestParam("endTime")LocalTime endTime){
+    public List<Integer> calculateListOfTrainIdsAtAStationInAParticularTimeRange(@RequestParam("station")Station station, @RequestParam("startTime")LocalTime startTime,@RequestParam("endTime")LocalTime endTime){
 
         return trainService.trainsBetweenAGivenTime(station,startTime,endTime);
     }
